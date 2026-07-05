@@ -173,6 +173,348 @@
         ]
       },
       {
+        "name": "config_cities",
+        "sourceLineageTag": "[dbo].[config_cities]",
+        "columns": [
+          {
+            "name": "city_id",
+            "dataType": "int64",
+            "sourceColumn": "city_id",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "city_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "city_name",
+            "dataType": "string",
+            "sourceColumn": "city_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "city_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "latitude",
+            "dataType": "double",
+            "sourceColumn": "latitude",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "latitude",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "longitude",
+            "dataType": "double",
+            "sourceColumn": "longitude",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "longitude",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "last_watermark",
+            "dataType": "dateTime",
+            "sourceColumn": "last_watermark",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "last_watermark",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "is_active",
+            "dataType": "boolean",
+            "sourceColumn": "is_active",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "bit",
+            "sourceLineageTag": "is_active",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "config_cities",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "fact_weather_hourly",
+        "sourceLineageTag": "[dbo].[fact_weather_hourly]",
+        "columns": [
+          {
+            "name": "city_id",
+            "dataType": "int64",
+            "sourceColumn": "city_id",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "city_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "city_name",
+            "dataType": "string",
+            "sourceColumn": "city_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "city_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "observation_time",
+            "dataType": "dateTime",
+            "sourceColumn": "observation_time",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "observation_time",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "temperature_c",
+            "dataType": "decimal",
+            "sourceColumn": "temperature_c",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "temperature_c",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "humidity_pct",
+            "dataType": "int64",
+            "sourceColumn": "humidity_pct",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "humidity_pct",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "wind_kmh",
+            "dataType": "decimal",
+            "sourceColumn": "wind_kmh",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "wind_kmh",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "load_timestamp",
+            "dataType": "dateTime",
+            "sourceColumn": "load_timestamp",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "load_timestamp",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "fact_weather_hourly",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "load_log",
+        "sourceLineageTag": "[dbo].[load_log]",
+        "columns": [
+          {
+            "name": "run_id",
+            "dataType": "string",
+            "sourceColumn": "run_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "run_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "city_name",
+            "dataType": "string",
+            "sourceColumn": "city_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "city_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "rows_loaded",
+            "dataType": "int64",
+            "sourceColumn": "rows_loaded",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "rows_loaded",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "new_watermark",
+            "dataType": "dateTime",
+            "sourceColumn": "new_watermark",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "new_watermark",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "load_timestamp",
+            "dataType": "dateTime",
+            "sourceColumn": "load_timestamp",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "load_timestamp",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "load_log",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
         "name": "sample_posts",
         "sourceLineageTag": "[dbo].[sample_posts]",
         "columns": [
